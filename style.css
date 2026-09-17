@@ -1,0 +1,151 @@
+:root {
+    --bg-color: #f4f6f9;
+    --card-bg: #ffffff;
+    --text-main: #333333;
+    --text-muted: #64748b;
+    --primary-blue: #1e3a8a;
+    --accent-blue: #2563eb;
+    --accent-hover: #1d4ed8;
+    --border-color: #cbd5e1;
+    --input-bg: #f8fafc;
+}
+
+[data-theme="dark"] {
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    --primary-blue: #38bdf8;
+    --accent-blue: #38bdf8;
+    --accent-hover: #7dd3fc;
+    --border-color: #475569;
+    --input-bg: #334155;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-main);
+    background-color: var(--bg-color);
+    padding: 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+html { font-size: 16px; }
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 15px 0;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 700px;
+    margin: 0 auto 5px auto;
+}
+
+header h1 { color: var(--primary-blue); font-size: 2.2rem; }
+header p { color: var(--text-muted); }
+main { max-width: 700px; margin: 0 auto; width: 100%; }
+
+section {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+footer { text-align: center; margin-top: 40px; color: var(--text-muted); font-size: 0.9rem; }
+
+form div { margin-bottom: 18px; }
+label { display: block; font-weight: 600; margin-bottom: 6px; color: var(--primary-blue); }
+
+input[type="text"], input[type="email"], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1rem;
+    color: var(--text-main);
+    background-color: var(--input-bg);
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.btn-primary {
+    width: 100%;
+    background-color: var(--accent-blue);
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    min-height: 48px;
+}
+.btn-primary:hover { background-color: var(--accent-hover); }
+
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.filter-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+.filter-controls input { flex: 2; }
+.filter-controls select { flex: 1; }
+
+table { width: 100%; border-collapse: collapse; margin-top: 15px; text-align: left; }
+th, td { padding: 12px 10px; border-bottom: 1px solid var(--border-color); }
+th { background-color: var(--input-bg); color: var(--primary-blue); font-weight: 600; }
+tr:hover { background-color: var(--input-bg); }
+
+.badge { padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; display: inline-block; }
+.badge-lav { background-color: #e2e8f0; color: #475569; }
+.badge-medium { background-color: #fef3c7; color: #92400e; }
+.badge-høy { background-color: #fee2e2; color: #991b1b; }
+
+.status-åpen { color: #2563eb; font-weight: 600; }
+.status-under-behandling { color: #d97706; font-weight: 600; }
+.status-lukket { color: #16a34a; font-weight: 600; text-decoration: line-through; }
+
+@media (max-width: 600px) {
+    .filter-controls { flex-direction: column; }
+    table, thead, tbody, th, td, tr { display: block; }
+    thead tr { position: absolute; top: -9999px; left: -9999px; }
+    tr { background: var(--input-bg); border: 1px solid var(--border-color); border-radius: 8px; margin-bottom: 15px; padding: 10px; }
+    td { border: none; border-bottom: 1px dashed var(--border-color); position: relative; padding-left: 45%; text-align: right; }
+    td:last-child { border-bottom: none; }
+    td:before { position: absolute; left: 10px; width: 40%; text-align: left; font-weight: bold; color: var(--primary-blue); }
+    
+    td:nth-of-type(1):before { content: "Saksnr:"; }
+    td:nth-of-type(2):before { content: "Fra:"; }
+    td:nth-of-type(3):before { content: "Kategori:"; }
+    td:nth-of-type(4):before { content: "Beskrivelse:"; }
+    td:nth-of-type(5):before { content: "Prioritet:"; }
+    td:nth-of-type(6):before { content: "Status:"; }
+}

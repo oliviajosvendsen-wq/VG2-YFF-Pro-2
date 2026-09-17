@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Helpdesk - Profesjonelt Supportsystem</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-top">
+            <h1>IT Helpdesk</h1>
+            <button id="theme-toggle" class="btn-secondary">🌙 Mørk modus</button>
+        </div>
+        <p>Bedriftens interne løsning for registrering av supportsaker</p>
+    </header>
+
+    <main>
+        <section class="form-section">
+            <h2>Registrer en ny supportsak</h2>
+            <p>Vennligst fyll ut skjemaet nedenfor.</p>
+
+            <form id="helpdesk-form" action="#" method="POST">
+                <div>
+                    <label for="name">Navn:</label>
+                    <input type="text" id="name" name="name" required placeholder="Ditt fulle navn">
+                </div>
+
+                <div>
+                    <label for="email">E-postadresse:</label>
+                    <input type="email" id="email" name="email" required placeholder="navn@bedrift.no">
+                </div>
+
+                <div>
+                    <label for="category">Kategori:</label>
+                    <select id="category" name="category" required>
+                        <option value="" disabled selected>Velg en kategori...</option>
+                        <option value="Maskinvare">Maskinvare (PC, skjerm, mus)</option>
+                        <option value="Programvare">Programvare (Office, Windows)</option>
+                        <option value="Nettverk">Nettverk og internett</option>
+                        <option value="Tilganger">Tilganger og passord</option>
+                        <option value="Annet">Annet</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="priority">Prioritet:</label>
+                    <select id="priority" name="priority" required>
+                        <option value="" disabled selected>Velg prioritet...</option>
+                        <option value="Lav">Lav</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Høy">Høy</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="description">Beskrivelse av problemet:</label>
+                    <textarea id="description" name="description" rows="5" required placeholder="Forklar detaljert hva som er galt..."></textarea>
+                </div>
+
+                <div>
+                    <button type="submit" class="btn-primary">Send inn supportsak</button>
+                </div>
+            </form>
+
+            <div id="confirmation-message"></div>
+        </section>
+
+        <section class="tickets-section" style="margin-top: 40px;">
+            <h2>Aktive supportsaker</h2>
+            <p>Oversikt og administrasjon av innmeldte saker.</p>
+            
+            <div class="filter-controls">
+                <input type="text" id="search-input" placeholder="Søk i beskrivelse eller navn...">
+                <select id="filter-status">
+                    <option value="Alle">Alle statuser</option>
+                    <option value="Åpen">Åpen</option>
+                    <option value="Under behandling">Under behandling</option>
+                    <option value="Lukket">Lukket</option>
+                </select>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Saksnr.</th>
+                            <th>Innmeldt av</th>
+                            <th>Kategori</th>
+                            <th>Beskrivelse</th>
+                            <th>Prioritet</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tickets-table-body">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 IT-avdelingen. Alle rettigheter reservert.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
